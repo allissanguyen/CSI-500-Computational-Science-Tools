@@ -1,7 +1,7 @@
 # R Worksheet #1 
 # Author: Allissa Nguyen
 
-########## Problem 1 #########
+########## Problem 1: R Data types #########
 
 # Imagine you own a portfolio consisting of shares of the following high technology companies as shown in Table 1.  
 # Recent closing prices for these shares of stock are shown in the 3rd column of the table.
@@ -57,7 +57,7 @@ sum(new_value_from_legislation)
 
 
 
-########## Problem 2 #########
+########## Problem 2: Microeconomics and Matrix methods #########
 # Imagine you are a market analyst, and you are assigned the task of forecasting sales price 
 # and demand for a new type of athletic wristwatch called the ZipFit.  
 # Based on analysis of similar products in this market space, you estimate that for production of 
