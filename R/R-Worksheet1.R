@@ -66,12 +66,16 @@ sum(new_value_from_legislation)
 # 2.1 What is the slope (m) of the demand curve (the blue line)? Recall that slope is defined as dy/dx, or (y2-y1)/(x2-x1).
 # 2.2 What is the Y-intercept (b) of the demand curve (the blue line)
 # 2.3 Using the values you just found, what is an expression for the line expressing the demand curve, using Y = mx + b format?
-#   
+
 # Supply Curve Analysis
 # 2.4 What is the slope (m) of the supply curve (the red line)?  Recall that slope is defined as dy/dx, or (y2-y1)/(x2-x1).
 # 2.5 What is the Y-intercept (b) of the supply curve (the red line)?
 # 2.6 Using the values you just found, what is an expression for the demand curve using Y = mx + b notation?
 
-m_demand = (0-400)/(7-0) # slope
+m_demand = (0-400)/(7-0) # slope of demand
 b_demand = 400 # y-int
 # expression y = -57.143x + 400
+
+m_supply = (100-0)/(3-0) # slope of supply
+b_supply = 0
+# expression y = 33.333x + 0
