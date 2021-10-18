@@ -27,3 +27,25 @@ df2 = data.frame(id, dorm, in_state)
 df1_2 <-merge(df1, df2, by = 'id') # combines df1 and 2
 df1_2[c('major', 'in_state')] # filters to select major and in_state
 
+
+
+########## Problem #1: Functions #########
+# Implemente the Fibonacci function.  
+# Provide output for the values from 1 to 20.
+
+# function for fibonacci sequence
+fib = function(n){
+  if( n==0 |  n==1){
+    return (1)
+  }
+  else{
+    n = fib(n-1) + fib(n-2)
+  }
+}
+
+printf = function(s, ...){
+  cat(paste0(sprintf(s, ...)), '\n')
+}
+
+for (i in 1:20){
+  printf("fib = %d, i = %d\n", fib(i),i)}
