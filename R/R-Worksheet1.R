@@ -131,3 +131,9 @@ stem(data_one) # creates stem-and-leaf plot
 #  1 | 01112334456777789
 #  2 | 011234
 
+
+
+
+
+boxplot( data_one, data_two) # creates a double boxplot
+
