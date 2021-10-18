@@ -1,8 +1,10 @@
 # R Worksheet #1 
 # Author: Allissa Nguyen
 
+########## Problem 1 #########
 
-# Imagine you own a portfolio consisting of shares of the following high technology companies as shown in Table 1.  Recent closing prices for these shares of stock are shown in the 3rd column of the table.
+# Imagine you own a portfolio consisting of shares of the following high technology companies as shown in Table 1.  
+# Recent closing prices for these shares of stock are shown in the 3rd column of the table.
 # Table 1. Stock Portfolio
 # Company	        Number of Shares	Closing Price ($)
 # Hewlett-Packard	1000	            20.00
@@ -13,7 +15,8 @@
 # 1.1	Write an R expression to store the names of the companies as a character vector
 # 1.2	Write an R expression to store the number of shares as a numeric vector
 # 1.3	Write an R expression to store the closing price as a numeric vector
-# 1.4	Write an R expression using your vectors and R vector arithmetic operator(s) to compute your total portfolio value (number of shares * closing price).  What is the market value of your portfolio?
+# 1.4	Write an R expression using your vectors and R vector arithmetic operator(s) to compute your total portfolio value .  
+# What is the market value of your portfolio?
 
 companies <- c('Hewlett-Packard', 'IBM', 'Google', 'Amazon') # stores names of companies as character vector
 num_shares <- c(1000,350,250,500) # stores number of shares as numeric vector
@@ -50,3 +53,25 @@ sum(money_for_vacay) # sum of elements
 new_value_from_legislation <- total_port_val_after_sell*1.625
 sum(new_value_from_legislation)
 # market value of portfolio after new law: 1,865,500
+
+
+
+########## Problem 2 #########
+# Imagine you are a market analyst, and you are assigned the task of forecasting sales price and demand for a new type of athletic wristwatch called the ZipFit.  
+# Based on analysis of similar products in this market space, you estimate that for production of about 4.5 million units, the market price could be about $150, 
+# but ZipFits could sell for less if there were higher levels of production.  
+# Use the graph in Figure 1 as a guide for this problem.
+
+# Demand Curve Analysis
+# 2.1 What is the slope (m) of the demand curve (the blue line)? Recall that slope is defined as dy/dx, or (y2-y1)/(x2-x1).
+# 2.2 What is the Y-intercept (b) of the demand curve (the blue line)
+# 2.3 Using the values you just found, what is an expression for the line expressing the demand curve, using Y = mx + b format?
+#   
+# Supply Curve Analysis
+# 2.4 What is the slope (m) of the supply curve (the red line)?  Recall that slope is defined as dy/dx, or (y2-y1)/(x2-x1).
+# 2.5 What is the Y-intercept (b) of the supply curve (the red line)?
+# 2.6 Using the values you just found, what is an expression for the demand curve using Y = mx + b notation?
+
+m_demand = (0-400)/(7-0) # slope
+b_demand = 400 # y-int
+# expression y = -57.143x + 400
