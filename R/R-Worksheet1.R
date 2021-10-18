@@ -79,3 +79,17 @@ b_demand = 400 # y-int
 m_supply = (100-0)/(3-0) # slope of supply
 b_supply = 0
 # expression y = 33.333x + 0
+
+matrix_a = matrix(nrow = 2, ncol = 2, byrow = TRUE, data = c(-m_demand, 1, -m_supply, 1))
+matrix_b = matrix(nrow = 2, ncol = 1, data = c(b_demand, b_supply))
+
+inverse_matrix_a = solve(matrix_a) # compute inverse A
+#            [,1]        [,2]
+# [1,] 0.01105263 -0.01105263
+# [2,] 0.36842105  0.63157895
+
+solve(matrix_a, matrix_b) # compute inverse of A multiplied by b
+#            [,1]
+# [1,]   4.421053
+# [2,] 147.368421
+# (4.421, 147.368) (x,y) coordinates
