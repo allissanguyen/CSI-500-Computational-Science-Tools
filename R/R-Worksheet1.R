@@ -131,9 +131,11 @@ stem(data_one) # creates stem-and-leaf plot
 #  1 | 01112334456777789
 #  2 | 011234
 
+hist(data_two)
 
+plot(main = 'scatter plot for data_one', data_one)
 
-
+plot(main = '2-D line plot for data_two', density(sort(data_two)))
 
 boxplot( data_one, data_two) # creates a double boxplot
 
