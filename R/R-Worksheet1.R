@@ -29,3 +29,6 @@ sum(total_port_val)
 
 
 # Assume you want to go on a vacation at the end of the semester, and you need to book travel and hotel fares now before travel rates go up.  You decide to sell 20 shares of IBM stock and 50 shares of Hewlett-Packard stock to finance your vacation.
+# 1.5 Write an R expression to indicate the change in number of shares (hint: you may use negative numbers and add the change vector to your original vector).  
+# 1.6 How much is the current value of your portfolio after you make the sale?  
+# 1.7 How much money do you now have for your vacation (ignore taxes and brokerage fees for this example).
