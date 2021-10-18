@@ -44,7 +44,8 @@ money_for_vacay <- to_sell*closing_price # computing shares sold value
 sum(money_for_vacay) # sum of elements
 # money for vacation: 2000
 
-# Now assume that Congress passes the "High Technology Investment Act of 2020", which provides tax benefits and incentives for high tech companies. 
+# Now assume that Congress passes the "High Technology Investment Act of 2020", which provides 
+# tax benefits and incentives for high tech companies. 
 # As a result of this new law, high tech companies are expected to see stock prices rise 6.25%.  
 # 1.8 Write an R expression that will adjust the value of your stock portfolio as a result of this legislation
 # 1.9 How much is the new value of your portfolio after the law takes effect and stock prices go up?
@@ -57,8 +58,10 @@ sum(new_value_from_legislation)
 
 
 ########## Problem 2 #########
-# Imagine you are a market analyst, and you are assigned the task of forecasting sales price and demand for a new type of athletic wristwatch called the ZipFit.  
-# Based on analysis of similar products in this market space, you estimate that for production of about 4.5 million units, the market price could be about $150, 
+# Imagine you are a market analyst, and you are assigned the task of forecasting sales price 
+# and demand for a new type of athletic wristwatch called the ZipFit.  
+# Based on analysis of similar products in this market space, you estimate that for production of 
+# about 4.5 million units, the market price could be about $150, 
 # but ZipFits could sell for less if there were higher levels of production.  
 # Use the graph in Figure 1 as a guide for this problem.
 
@@ -71,6 +74,14 @@ sum(new_value_from_legislation)
 # 2.4 What is the slope (m) of the supply curve (the red line)?  Recall that slope is defined as dy/dx, or (y2-y1)/(x2-x1).
 # 2.5 What is the Y-intercept (b) of the supply curve (the red line)?
 # 2.6 Using the values you just found, what is an expression for the demand curve using Y = mx + b notation?
+
+# 2.7 Using R matrix function "solve()" to compute the inverse of the matrix A.  What is your computed inverse matrix A-1 ?
+# Using your computed inverse matrix A-1, now solve the matrix expression below to compute the optimal quantity and price values for x and y.
+# Recall that any matrix A multiplied by its inverse A-1 results in the identity matrix I.  
+# Compute the optimal values for x and y.
+# 2.8 What is the R expression using matrix operations to compute A-1*b ?
+# 2.9 What is the optimal value x for the quantity of ZipFits to be produced (q*) in this market system?
+# 2.10 What is the optimal value y for the price of ZipFits to be consumed (p*) in this market system?
 
 m_demand = (0-400)/(7-0) # slope of demand
 b_demand = 400 # y-int
@@ -93,3 +104,30 @@ solve(matrix_a, matrix_b) # compute inverse of A multiplied by b
 # [1,]   4.421053
 # [2,] 147.368421
 # (4.421, 147.368) (x,y) coordinates
+
+
+
+########## Problem 3 #########
+# •	Create a sample data set called data_one using rnorm( 100, mean=0.0, sd=1.0)
+# •	Create a sample data set called data_two using rnorm( 100, mean=0.8, sd=2.5)
+# •	Create a stem-and-leaf plot for data_one
+# •	Create a histogram for data_two
+# •	Create a scatter plot for data_one
+# •	Create a 2-D line plot showing the sorted values for data_two
+# •	Create a double boxplot for data_one and data_two.  
+# Use this command syntax: boxplot( data_one, data_two)
+
+data_one <- rnorm( 100, mean=0.0, sd=1.0)
+data_two <- rnorm( 100, mean=0.8, sd=2.5)
+
+stem(data_one) # creates stem-and-leaf plot
+# The decimal point is at the |
+# 
+# -3 | 0
+# -2 | 
+# -1 | 8777654422110
+# -0 | 999887776444433322222111100
+#  0 | 011111122222333334555555556667779999
+#  1 | 01112334456777789
+#  2 | 011234
+
