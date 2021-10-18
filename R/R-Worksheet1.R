@@ -24,6 +24,7 @@ sum(total_port_val) # sum of elements
 # market value of portfolio: 1,150,000
 
 
+
 # Assume you want to go on a vacation at the end of the semester, and you need to book travel and hotel fares now before travel rates go up.  
 # You decide to sell 20 shares of IBM stock and 50 shares of Hewlett-Packard stock to finance your vacation.
 # 1.5 Write an R expression to indicate the change in number of shares 
@@ -39,3 +40,13 @@ sum(total_port_val_after_sell) # sum of elements
 money_for_vacay <- to_sell*closing_price # computing shares sold value
 sum(money_for_vacay) # sum of elements
 # money for vacation: 2000
+
+# Now assume that Congress passes the "High Technology Investment Act of 2020", which provides tax benefits and incentives for high tech companies. 
+# As a result of this new law, high tech companies are expected to see stock prices rise 6.25%.  
+# 1.8 Write an R expression that will adjust the value of your stock portfolio as a result of this legislation
+# 1.9 How much is the new value of your portfolio after the law takes effect and stock prices go up?
+
+# utilizing value for after sales of stocks
+new_value_from_legislation <- total_port_val_after_sell*1.625
+sum(new_value_from_legislation)
+# market value of portfolio after new law: 1,865,500
