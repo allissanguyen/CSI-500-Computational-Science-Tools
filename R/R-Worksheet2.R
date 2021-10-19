@@ -13,7 +13,8 @@
 # 245	Y	    Y
 # 387	Y	    N
 #
-# 1.2	Frame selection: Provide well documented R code to represent the two data frames, and provide additional R code to select only the major and in_state fields from the combined data frame.
+# 1.2	Frame selection: Provide well documented R code to represent the two data frames, 
+# and provide additional R code to select only the major and in_state fields from the combined data frame.
 
 id <- c(123, 245, 387)
 major <- c('Data Science', 'Pre-Med', 'Public Health')
@@ -53,7 +54,8 @@ for (i in 1:20){
 
 
 ########## Problem #3: Scientific Analysis and Visualization #########
-# In the lectures, we discussed various ways of rendering multiple data sets for visualization. Use your R skills to analyze the following data and prepare a scientific graph.
+# In the lectures, we discussed various ways of rendering multiple data sets for visualization. 
+# Use your R skills to analyze the following data and prepare a scientific graph.
 # Import the Modern Applied Statistics with S+ (MASS) library into your R environment
 library( MASS )
 # From the MASS library, make a copy of the crabs data set
