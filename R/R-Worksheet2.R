@@ -118,3 +118,9 @@ head(crab.data.O.F)
 # 1  O   F     1 10.7  9.7 21.4 24.0  9.8 1.121495
 # 2  O   F     2 11.4  9.2 21.7 24.1  9.7 1.110599
 # 3  O   F     3 12.5 10.0 24.1 27.0 10.9 1.120332
+
+boxplot(crab.data.B.F$wl.ratio,crab.data.B.M$wl.ratio, crab.data.O.F$wl.ratio, crab.data.O.M$wl.ratio,
+        names = c('BF', 'BM', 'OF', 'OM'),
+        main = "Crab Width-Length",
+        col = 'white')
+
