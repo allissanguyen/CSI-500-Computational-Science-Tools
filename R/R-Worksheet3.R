@@ -40,3 +40,30 @@ vector2 = c(1:100) # creates intergers
 sapply(1:100, expression)
 sapply(vector, expression)
 sapply(vector2, expression)
+
+
+########## Problem #2: Using 3D Graphics #########
+# 2.1 Create an X axis vector with integers from 1:10
+# 2.2 Create a Y axis vector with integers from 1:10
+# 2.3 Create a Z axis set of 100 random normally distributed data with mean = 0 and sd = 1.  
+# Remember you will need to convert the Z values into a 10x10 matrix.
+# 2.4 Use the contour() method to generate a plot.
+# 2.5 Now use the same data and prepare a 3D plot using persp(). Adjust the theta and phi values to make the plot easier to read. 
+# Include appropriate x, y, and z labels.
+
+# x & y axis vector 1:10
+
+
+x = c(1:10)
+y = c(1:10)
+xlen = length(x)
+ylen = length(y)
+
+z = rnorm(100)
+z <- matrix(z, nrow = 10)
+
+contour(x,y,z)
+persp(x,y,z,
+      theta = 30,
+      phi = 30)
+
