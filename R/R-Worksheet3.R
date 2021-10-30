@@ -67,3 +67,145 @@ persp(x,y,z,
       theta = 30,
       phi = 30)
 
+
+########## Problem #3: Data Analysis #########
+# In the lectures, we discussed the picnic problem.  
+# Recall that our analysis started from the assumption that day 1 was sunny rather than rainy.  
+# What would have happened if we started our analysis assuming that the day 1 was rainy instead?  
+# You may wish to run the model discussed in class using a different starting condition vector and see what happens.
+# What is the effect of starting from a rainy day instead of a sunny day?
+# What did you find?
+# 
+# In the lectures, we discussed using a 3-compartment model as a matrix-based analysis of the Diffusion of Innovation.
+# Try running the model with different values of beta and gamma, and see if you can get a diffusion bubble that looks like the real iPad sales data.
+# Recall that the real data is collected over 24 time periods of business quarters, so your time value should range from 1 to 24.
+# What values of beta and gamma work best?
+
+
+# define printf()
+printf = function(s, ...)
+  cat(paste0(sprintf(s, ...)), '\n')
+
+# define matrix power function
+mpow = function(m, p) {
+  val = m
+  for (i in 1:(p-1)) {
+    val = m %*% val
+  }
+  return(val)
+}
+
+p_sun_sun = 0.80
+p_sun_rain = 0.20
+p_rain_sun = 0.90
+p_rain_rain = 0.10
+M = matrix(
+  nrow = 2, ncol = 2,
+  byrow = TRUE,
+  data = c( p_sun_sun, p_sun_rain,
+            p_rain_sun, p_rain_rain)
+)
+P0 = c(0, 2)
+
+tmax = 20
+trange = seq(from = 1, to = tmax, by = 1)
+printf("%8s %8s %8s", "time", "p(sun)", "p(rain)")
+for (i in trange) {
+  Mt = P0 %*% mpow(M, i)
+  printf("%8d %8.4f %8.4f", i, Mt[1], Mt[2])
+}
+# 
+# Starting on a rainy day instead of sun changes the probability. 
+# For p(sun), the value converges to 1.6364 and p(rain) coverges to .3636.
+
+
+# define transition matrix for 3 class population
+# beta is transition rate from potential to adopter
+# gamma is transition rate from adopter to disposer
+
+beta = 0.1
+gamma = 0.05
+M = matrix(
+  nrow = 3,
+  ncol = 3,
+  byrow = TRUE,
+  data = c(-1 * beta, 0, 0,
+           beta, -1 * gamma, 0,
+           0, gamma, 0)
+)
+
+# initial population sizes
+num.potential = 99
+num.adopters = 1
+num.disposers = 0
+# N is initial pop vector distribution
+N = c(num.potential, num.adopters, num.disposers)
+# print title and column headers
+printf("population over time")
+printf("%4s%5s%8s%5s%8s%5s%8s",
+       "time", " ",
+       "potential", " ",
+       "adopters", " ",
+       "disposers" )
+printf("%4d %8.2f %8.2f %8.2f",
+       0, N[1], N[2], N[3])
+
+# keep track of pop history over time
+pop.hist.potentials = c(num.potential)
+pop.hist.adopters = c(num.adopters)
+pop.hist.disposers = c(num.disposers)
+# set up time range
+tmax = 24
+trange = seq(from = 1, to = tmax, by = 1)
+
+# iterate and compute pop changes over time
+for (i in trange) {
+  Nt = M %*% N
+  N = N + Nt
+  # print current pop distribution
+  printf("%4d %8.2f %8.2f %8.2f",
+         i, N[1],N[2],N[3])
+  # keep track of history for plotting later
+  pop.hist.potentials = c(pop.hist.potentials, N[1])
+  pop.hist.adopters = c(pop.hist.adopters, N[2])
+  pop.hist.disposers = c(pop.hist.disposers, N[3])
+}
+
+# make the plot
+plot(
+  trange,
+  pop.hist.potentials[1:tmax + 1],
+  ty = "l",
+  lwd = 2,
+  col = "blue",
+  ylim = c(0, max(pop.hist.potentials,
+                  pop.hist.adopters,
+                  pop.hist.disposers)),
+  main = "Diffusion of Innovation Model",
+  xlab = "time",
+  ylab = "pop size"
+)
+
+lines(trange,
+      pop.hist.adopters[1:tmax + 1],
+      ty = "l",
+      lwd = 2,
+      col = "green")
+lines(trange,
+      pop.hist.disposers[1:tmax + 1],
+      ty = "l",
+      lwd = 2,
+      col = "red")
+
+legend(
+  "right",
+  legend = c("potential", "adopters", "disposers"),
+  col = c("blue", "green", "red"),
+  pt.cex = 1.0,
+  cex = 0.75,
+  lwd = c(rep(3, 1.0)),
+  bty = 'y',
+  inset = c(0.02, 0.02),
+  y.intersp = 0.75
+)
+grid()
