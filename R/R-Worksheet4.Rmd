@@ -1,0 +1,78 @@
+---
+title: "R-Worksheet4"
+author: "Allissa Nguyen"
+date: "11/3/2021"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse) 
+library(MASS)
+```
+
+## Visualizing Data using ggplot Graphs
+```{r load crabs data}
+mycrabs = MASS::crabs
+```
+
+
+Create a graph comparing carapace width to carapace length using a geom_point() graph.  
+```{r crabs graph}
+mycrabs %>% 
+  ggplot() +
+  geom_point(mapping = aes(x = CW, y = CL)) +
+  labs(title = "Carapace Width vs Carapace Length",
+       x = "Carapace Width",
+       y = "Carapace Length")
+```
+
+
+Now create a boxplot comparing BD (body depth) measurement for each species.  Use the geom_boxplot() tool.  Your graph should look like this.
+```{r}
+mycrabs %>% 
+  ggplot() +
+  geom_boxplot(mapping = aes(sp, BD)) +
+  labs(title = "Species Comparison of Body Depth",
+       x = "Species",
+       y = "Body Depth")
+```
+
+
+Now create additional detail by color coding the observations by sex.  Use the the facet_wrap command, with the ~ element specifier.  Your graph should look like this.
+```{r}
+mycrabs %>% 
+  ggplot() +
+  geom_point(mapping = aes(x = CW, y = CL, color = sex)) +
+  facet_wrap(~sp) +
+  labs(title = "Carapace Width vs Carapace Length",
+       x = "Carapace Width",
+       y = "Carapace Length")
+```
+
+
+Continue your analysis by combining the species and sex data into a single combined "key" field called spsex.  Use the new field to create a series of side-by-side boxplots of body depth identified by sex and species.  Your graph should look like this.
+
+Creating new key
+```{r}
+mycrabs["spsex"] <- paste(mycrabs$sp, mycrabs$sex, sep = "")
+```
+
+
+```{r}
+mycrabs %>% 
+  ggplot() +
+  geom_boxplot(aes(spsex, BD))
+```
+
+
+Now make a histogram showing the body depth for all the sexes and species.  Use the geom_histogram() tool.  Your graph should look like this.
+```{r}
+mycrabs %>% 
+  ggplot() +
+  geom_histogram(aes(BD))+
+  labs(title = "Distribution of Body Depth",
+       x = "Body Depth",
+       y = "Count")
+```
+
